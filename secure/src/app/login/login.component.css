@@ -1,0 +1,46 @@
+.size35
+{
+    font-size:35px;
+}
+.bdr
+{
+    border: 1px  rgb(219, 216, 216) solid;
+    margin-top:40px;
+    padding: 10px;
+}
+label{
+    font-weight: bold;
+    font-size:14px
+}
+.but{
+    margin-top: 15px;
+    background-color: #F1C862;
+    font-size:14px;
+    color:black;
+}
+.size12
+{
+    font-size:12px;
+    letter-spacing:1px;
+}
+.top
+{
+    margin-top:25px;
+}
+.sign
+{
+    background-color: white;
+    border:none;
+    color:blue;
+    font-size:15px;
+}
+.account{
+    background-color: #EDEEF1;
+    width: 100%;
+    border:none;
+    border:1px #A2A6AC solid;
+    padding: 3px;
+}
+.center{
+    text-align: center;
+}
