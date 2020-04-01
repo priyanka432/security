@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecureComponent } from './secure/secure.component';
 import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: LoginComponent},
   {path: 'secure', component: SecureComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'list', component: ListComponent}
 ];
 
 @NgModule({

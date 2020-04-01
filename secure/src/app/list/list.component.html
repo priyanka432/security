@@ -1,0 +1,28 @@
+<div class="row top">
+  <div class="col-md-10"></div>
+  <div class="col-md-2 ">
+    <button (click)="signIn()">Sign In</button>
+    <button (click)="signUp()">Sign Up</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <table class="top">
+      <tr>
+          <td>S.No.</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Delete</td>
+        <td>Edit</td>
+      </tr>
+      <tr *ngFor="let list of data;index as i">
+          <td>{{i+1}}</td>
+        <td>{{list.name}}</td>
+        <td>{{list.email}}</td>
+        <td><button>delete</button></td>
+        <td><button>edit</button></td>
+      </tr>
+    </table>
+
+  </div>

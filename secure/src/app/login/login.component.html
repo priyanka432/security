@@ -1,3 +1,4 @@
+<form [formGroup]="login">
 <div class="row">
   <div class="col-md-5"></div>
   <div class="col-md-2 bdr">
@@ -7,10 +8,13 @@
     <div class="col-md-12">
       <label> Email (phone for mobile accounts)</label></div>  
     <div class="col-md-12">
-      <input type="text" class="form-control">
+      <input type="text" formControlName='email' [class.is-invalid]='login.get("email").invalid && login.get("email").touched' class="form-control">
     </div>
     <div class="col-md-12">
-      <button type="submit" class="form-control but">Continue</button>
+      <p class="text-danger size12" [class.d-none]='login.get("email").valid || login.get("email").untouched'>This field is required</p>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="form-control but" [disabled]="login.invalid ">Continue</button>
      </div>
      <div class="col-md-12 top">
       <p class="size12 ">By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
@@ -26,3 +30,4 @@
     <button (click)="secure()" class="account">Create your Amazon Account</button>
   </div>
 </div>
+</form>

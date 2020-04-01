@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SecureComponent } from './secure/secure.component';
 import { LoginComponent } from './login/login.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './user.service';
+import { ListComponent } from './list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
     SecureComponent,
-    LoginComponent
+    LoginComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

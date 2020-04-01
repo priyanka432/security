@@ -1,3 +1,9 @@
+<form [formGroup]="secure">
+ <div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-2"><button (click)="reset()" class="reset">RESET</button>
+      <button (click)="list()" class="reset">LIST</button></div>
+ </div>
 <div class="row">
   <div class="col-md-5"></div>
   <div class="col-md-2 bdr">
@@ -7,25 +13,35 @@
     <div class="col-md-12">
       <label> Your Name</label></div>
       <div class="col-md-12">
-      <input type="text" class="form-control">
+      <input type="text" formControlName='name' [class.is-invalid]='secure.get("name").invalid && secure.get("name").touched' class="form-control">
     </div>
+    <div class="col-md-12">
+        <p class="text-danger size12" [class.d-none]='secure.get("name").valid || secure.get("name").untouched'>Name is required</p>
+      </div>
     <div class="col-md-12">
       <label> Email</label></div>
       <div class="col-md-12">
-      <input type="email" class="form-control">
+      <input type="email" formControlName='email' [class.is-invalid]='secure.get("email").invalid && secure.get("email").touched' class="form-control">
     </div>
     <div class="col-md-12">
       <label> Password</label></div>
       <div class="col-md-12">
-      <input type="password" class="form-control">
+      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" formControlName='password'  [class.is-invalid]='secure.get("password").invalid && secure.get("password").touched' class="form-control">
     </div>
+    <div class="col-md-12" *ngIf="secure.get('password').errors && ( secure.get('password').invalid && secure.get('password').touched)">
+        <p class="text-danger size12" *ngIf='secure.get("password").errors.required'>Password is required<p>
+            <p class="text-danger size12" *ngIf='secure.get("password").errors.pattern'>Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"<p>
+      </div>
     <div class="col-md-12">
       <label> Re-enter password</label></div>
       <div class="col-md-12">
-      <input type="password" class="form-control">
+      <input type="password" formControlName='cnfrm' [class.is-invalid]='secure.get("cnfrm").invalid && secure.get("cnfrm").touched' class="form-control">
     </div>
     <div class="col-md-12">
-     <button type="submit" class="form-control but">Create your Amazon account</button>
+        <p class="text-danger size12" [class.d-none]='secure.get("cnfrm").valid || secure.get("cnfrm").untouched'>re-enter password is required</p>
+      </div>
+    <div class="col-md-12">
+     <button type="submit" class=" but"  [disabled]="secure.invalid" (click)="submit()">Create your Amazon account</button>
     </div>
     <div class="col-md-12 top">
       <p class="size12 ">By creating an account, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
@@ -35,3 +51,4 @@
     </div>
   </div>
 </div>
+</form>

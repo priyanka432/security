@@ -1,0 +1,19 @@
+table{
+    border:1px solid;
+    font-weight: bold;
+    text-align: center;
+    width:100%;
+}
+td{
+    border:1px solid;
+}
+button{
+    background-color: white;
+    border:none;
+    color:blue;
+    font-size:20px;
+    
+}
+.top{
+    margin-top: 20px;
+}
