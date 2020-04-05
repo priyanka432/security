@@ -8,16 +8,17 @@ import { UserService } from '../user.service';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent implements OnInit {
-
-  constructor(private router: Router,private formBuilder: FormBuilder, private userService: UserService) { }
+data: any = [];
+  constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService) { }
   secure = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
-    cnfrm: ['', Validators.required]
+    cnfrm: ['', Validators.required],
+   phone: ['', [Validators.required]]
   })
   ngOnInit() {
-    this.submit();
+  this.data = this.userService.getData(); 
   }
   sign()
   {
@@ -26,7 +27,7 @@ this.router.navigateByUrl('login');
   submit() {
     if ((this.secure.get('password').value === this.secure.get('cnfrm').value) ) {
         this.userService.sendUserData(this.secure.value);
-        //this.router.navigateByUrl('login')
+        
    }
     else {
      alert('password or confirm password are not match');

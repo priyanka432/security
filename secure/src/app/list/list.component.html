@@ -13,15 +13,17 @@
           <td>S.No.</td>
         <td>Name</td>
         <td>Email</td>
+        <td>Phone</td>
         <td>Delete</td>
         <td>Edit</td>
       </tr>
       <tr *ngFor="let list of data;index as i">
-          <td>{{i+1}}</td>
+        <td>{{i+1}}</td>
         <td>{{list.name}}</td>
         <td>{{list.email}}</td>
-        <td><button>delete</button></td>
-        <td><button>edit</button></td>
+        <td>{{list.phone}}</td>
+        <td><button (click)="delete(i)">delete</button></td>
+        <td><button (click)="edit(i)">edit</button></td>
       </tr>
     </table>
 

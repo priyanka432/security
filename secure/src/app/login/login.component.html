@@ -14,7 +14,7 @@
       <p class="text-danger size12" [class.d-none]='login.get("email").valid || login.get("email").untouched'>This field is required</p>
     </div>
     <div class="col-md-12">
-      <button type="submit" class="form-control but" [disabled]="login.invalid ">Continue</button>
+      <button type="submit" class="form-control but" [disabled]="login.invalid " (click)="signIn()">Continue</button>
      </div>
      <div class="col-md-12 top">
       <p class="size12 ">By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</p>

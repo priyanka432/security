@@ -23,4 +23,9 @@ import { ListComponent } from './list/list.component';
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor()
+  {
+    console.log('main module')
+  }
+ }

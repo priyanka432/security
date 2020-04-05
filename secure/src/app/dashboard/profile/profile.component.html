@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <p class="size30">Profile</p>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <table *ngFor="let profile of userData">
+        <tr>
+          <td>Name</td>
+          <td >{{profile.name}}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td >{{profile.email}}</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td >{{profile.password}}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td >{{profile.phone}}</td>
+        </tr>
+
+
+      </table>
+    </div>
+    </div>

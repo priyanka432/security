@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
-  public data: any;
+  public data: any = [];
   ngOnInit() {
     this.getUserData();
   }
-  getUserData()
-  {
+  getUserData() {
     this.data = this.userService.getData();
     console.log(this.data);
   }
@@ -25,6 +24,14 @@ export class ListComponent implements OnInit {
   signUp()
   {
     this.router.navigateByUrl('secure');
+  }
+  delete(index)
+  {
+    this.userService.deleteData(index);
+  }
+  edit(index)
+  {
+    
   }
 
 }

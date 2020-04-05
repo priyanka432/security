@@ -40,6 +40,14 @@
     <div class="col-md-12">
         <p class="text-danger size12" [class.d-none]='secure.get("cnfrm").valid || secure.get("cnfrm").untouched'>re-enter password is required</p>
       </div>
+      <div class="col-md-12">
+        <label> Your Phone No.</label></div>
+        <div class="col-md-12">
+        <input type="text" formControlName='phone' [class.is-invalid]='secure.get("phone").invalid && secure.get("phone").touched' maxlength="10" class="form-control">
+      </div>
+      <div class="col-md-12">
+        <p class="text-danger size12" [class.d-none]='secure.get("phone").valid || secure.get("phone").untouched'>Phone Number is required</p>
+      </div>
     <div class="col-md-12">
      <button type="submit" class=" but"  [disabled]="secure.invalid" (click)="submit()">Create your Amazon account</button>
     </div>
