@@ -17,8 +17,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   ]
 })
 export class DashboardModule {
-  constructor()
-  {
-    console.log('admin module')
+  constructor() {
+    console.log('admin module');
   }
- }
+}

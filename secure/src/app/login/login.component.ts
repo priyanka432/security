@@ -12,16 +12,16 @@ datas = [];
   constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService ) { }
 login = this.formBuilder.group({
   email: ['', Validators.required]
-})
+});
   ngOnInit() {
   }
-  secure()
-  {
+  secure() {
     this.router.navigateByUrl('secure');
   }
-  signIn()
-  {
+  signIn() {
     this.userService.login(this.login.value);
   }
-
+  list() {
+    this.router.navigateByUrl('list');
+  }
 }

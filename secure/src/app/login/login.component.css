@@ -22,6 +22,7 @@ label{
 {
     font-size:12px;
     letter-spacing:1px;
+    padding: 15px;
 }
 .top
 {
@@ -40,7 +41,22 @@ label{
     border:none;
     border:1px #A2A6AC solid;
     padding: 3px;
+    font-size:15px;
 }
 .center{
     text-align: center;
+}
+.list
+{
+    background-color: white;
+    border:none;
+    color:blue;
+    font-size:20px;
+    margin-top: 10px;
+}
+input{
+    padding: 15px;
+}
+.green{
+    color:green;
 }

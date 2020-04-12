@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './user.service';
 import { ListComponent } from './list/list.component';
+import { AuthGuard } from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +21,11 @@ import { ListComponent } from './list/list.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor()
-  {
-    console.log('main module')
+  constructor() {
+    console.log('main module');
   }
  }

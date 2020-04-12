@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 @Component({
@@ -8,38 +8,52 @@ import { UserService } from '../user.service';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent implements OnInit {
-data: any = [];
-  constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService) { }
+  data: any = [];
+  index: number;
+  constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService,
+              private activatedRoute: ActivatedRoute) { }
   secure = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
     cnfrm: ['', Validators.required],
-   phone: ['', [Validators.required]]
+    phone: ['', [Validators.required]]
   })
   ngOnInit() {
-  this.data = this.userService.getData(); 
+    this.patchData();
   }
-  sign()
-  {
-this.router.navigateByUrl('login');
+  sign() {
+    this.router.navigateByUrl('login');
   }
   submit() {
-    if ((this.secure.get('password').value === this.secure.get('cnfrm').value) ) {
+    const p = this.userService.findIndex(this.index);
+    if (p === undefined) {
+      if ((this.secure.get('password').value === this.secure.get('cnfrm').value)) {
         this.userService.sendUserData(this.secure.value);
-        
-   }
+      }
+      else {
+        alert('password or confirm password are not match');
+      }
+
+    }
     else {
-     alert('password or confirm password are not match');
-   }
+      this.userService.sendUserData(this.secure.value, this.index);
+      this.router.navigateByUrl('list');
+    }
   }
-  reset()
-  {
+  reset() {
     this.secure.reset();
   }
-  list()
-  {
+  list() {
     this.router.navigateByUrl('list');
+  }
+  patchData() {
+    this.data = this.userService.getData();
+    this.activatedRoute.params.subscribe(params => {
+      this.index = params['id'];
+      const p = this.userService.editData(this.index);
+      this.secure.patchValue(p ? p : {});
+    });
   }
 
 }

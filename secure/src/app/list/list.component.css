@@ -3,6 +3,7 @@ table{
     font-weight: bold;
     text-align: center;
     width:100%;
+    font-size:18px;
 }
 td{
     border:1px solid;
@@ -12,8 +13,16 @@ button{
     border:none;
     color:blue;
     font-size:20px;
-    
 }
 .top{
     margin-top: 20px;
+}
+.green{
+    color:green;
+  font-size:20px;
+}
+.red{
+    color:red;
+    font-size:20px;
+   
 }

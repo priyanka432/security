@@ -1,8 +1,10 @@
 <div class="row top">
-  <div class="col-md-10"></div>
-  <div class="col-md-2 ">
+  <div class="col-md-9"></div>
+  <div class="col-md-3 ">
     <button (click)="signIn()">Sign In</button>
     <button (click)="signUp()">Sign Up</button>
+     <!-- Trigger the modal with a button -->
+    <button data-toggle="modal" data-target="#myModal">Selected Users</button>
   </div>
 </div>
 <div class="row">
@@ -10,12 +12,13 @@
   <div class="col-md-8">
     <table class="top">
       <tr>
-          <td>S.No.</td>
+        <td>S.No.</td>
         <td>Name</td>
         <td>Email</td>
         <td>Phone</td>
         <td>Delete</td>
         <td>Edit</td>
+        <td>Select</td>
       </tr>
       <tr *ngFor="let list of data;index as i">
         <td>{{i+1}}</td>
@@ -24,7 +27,39 @@
         <td>{{list.phone}}</td>
         <td><button (click)="delete(i)">delete</button></td>
         <td><button (click)="edit(i)">edit</button></td>
+        <td><button (click)="selectUsers(i)" ><span *ngFor="let userIndex of selectedIndex; index as select"><span [ngClass]="select && isSelect?'green':'red'">Select</span></span></button></td>
       </tr>
     </table>
-
   </div>
+
+   
+
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Selected Users</h4>
+          </div>
+          <div class="modal-body">
+           <table>
+             <tr>
+               <td>Name</td>
+               <td>Email</td>
+               <td>Phone Number</td>
+             </tr>
+             <tr *ngFor="let users of selectedUsers">
+              <td>{{users.name}}</td>
+              <td>{{users.email}}</td>
+              <td>{{users.phone}}</td>
+            </tr>
+           </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
