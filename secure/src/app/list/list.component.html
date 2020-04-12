@@ -27,7 +27,7 @@
         <td>{{list.phone}}</td>
         <td><button (click)="delete(i)">delete</button></td>
         <td><button (click)="edit(i)">edit</button></td>
-        <td><button (click)="selectUsers(i)" ><span *ngFor="let userIndex of selectedIndex; index as select"><span [ngClass]="select && isSelect?'green':'red'">Select</span></span></button></td>
+        <td><button (click)="selectUsers(i)" ><span [ngClass]="SelectedIndex && isSelect?'green':'red'">Select</span></button></td>
       </tr>
     </table>
   </div>

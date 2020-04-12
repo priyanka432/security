@@ -40,8 +40,6 @@ export class ListComponent implements OnInit {
          (res.phone === this.data[index].phone));
       if ( a === -1) {
       this.userService.pushSelectUsers(index);
-     // this.userService.pushSelectIndex(index);
-     // this.change = 'green';
       this.isSelect = true;
     }
       else {
